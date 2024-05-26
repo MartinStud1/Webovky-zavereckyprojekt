@@ -7,6 +7,17 @@
 </head>
 <body>
     <h1>Tvorba Anket</h1>
-    
+    <br>
+    <h3>Vytvoř novou anketu : </h3>
+    <form method="post" action="/tvorba_anket">
+        <input type="hidden" name="form_type" value="data">
+        <p>Kolik má mít anketa otázek?</p>
+        <input type="number" name="element1">
+        <p>Kolik bude mít každá otázka možností na výběr?</p>
+        <input type="number" name="element2">
+        <input type="submit">
+    </form>
+    {{a}}
+    {{b}}
 </body>
 </html>

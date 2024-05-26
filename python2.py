@@ -15,17 +15,25 @@ def index():
     return render_template("html.html")
 
 
-@app.route("/tvorba_anket", methods=["GET"])
-def tvorba_anket():
-    ot = request.args.get("ot")
-    moz = request.args.get("moz")
-    return render_template("tvorba_anket.html", ot=ot, moz=moz)
-
 @app.route("/prihlaseni", methods=["GET"])
 def prihlaseni():
     jmeno = request.args.get("jmeno")
     prijmeni = request.args.get("prijmeni")
     return render_template("prihlaseni.html", jmeno=jmeno, prijmeni=prijmeni)
+
+
+        
+@app.route("/tvorba_anket", methods=["GET", "POST"])
+def tvorba_anket():
+    kolikotazek = None
+    kolikmoznosti = None
+    if request.method == "POST":
+        kolikotazek = request.form.get("element1")
+        kolikmoznosti = request.form.get("element2") 
+    if kolikotazek == None or kolikmoznosti == None or kolikotazek == None and kolikmoznosti == None:
+        return render_template("tvorba_anket.html",a = "Vyplň kolonku",b = "Vyplň kolonku")       
+    else:
+        return render_template("tvorba_anket.html",a = kolikotazek,b = kolikmoznosti)
 
 if __name__ == "__main__":
     app.run(debug=True)
