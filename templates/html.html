@@ -6,12 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    nazdar
-    <form method = "post">
-        <input type = "text" name="element1">
-        <input type = "submit">
+    <h1>Hlavní stránka</h1>
 
+    <form method="post" action="/">
+        <input type="hidden" name="form_type" value="anketa">
+        <input type="submit" value="Přejdi na tvorbu ankety">
     </form>
-    Předpovídám, že jsi zadal : {{zadane}}
+<hr>
+    <form method="post" action="/">
+        <input type="hidden" name="form_type" value="prihlaseni">
+        <p>Zadej jméno</p>
+        <input type="text" name="element3">
+        <p>Zadej příjmení</p>
+        <input type="text" name="element4">
+        <input type="submit">
+    </form>
+    
 </body>
 </html>
